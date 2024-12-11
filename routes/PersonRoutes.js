@@ -37,8 +37,6 @@ router.get("/:worktype", async (req, res) => {
   }
 });
 
-// This is updates routes
-
 router.put("/:id", async (req, res) => {
   try {
     const data = await Person.updateOne(
