@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Person = require("./../models/Product");
+const Person = require("../models/Person");
 
 router.post("/", async (req, res) => {
   try {
@@ -50,6 +50,15 @@ router.put("/:id", async (req, res) => {
     res.status(200).send(data);
   } catch (err) {
     console.log(err);
+    res.status(500).send({ error: "Server error" });
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const data = await Person.deleteOne({ _id: req.params.id });
+    res.status(200).send(data);
+  } catch (err) {
     res.status(500).send({ error: "Server error" });
   }
 });
