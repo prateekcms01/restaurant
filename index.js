@@ -22,7 +22,7 @@ const menuRoutes = require("./routes/MenuRoutes");
 app.use("/menuitems", menuRoutes);
 
 const personRoutes = require("./routes/PersonRoutes");
-app.use("/person", auth, personRoutes);
+app.use("/person", personRoutes);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
