@@ -5,12 +5,6 @@ require("dotenv").config();
 const passport = require("./auth");
 app.use(express.json());
 
-// This is middleware function which execute after req till response .
-const midde = (req, res, next) => {
-  console.log("this is middleware");
-  next();
-};
-
 app.use(passport.initialize());
 const auth = passport.authenticate("local", { session: false });
 
